@@ -44,25 +44,32 @@ export default function App() {
           data={slides}
           renderItem={({ item }) => {
             return (
-              <View>
-                <View className="flex flex-row text-center">
+              <View className="px-7">
+                <View className="text-center pt-10 relative">
                   <Text className="text-white text-[15px] text-center ">
                     {item.pageNum} <Text className="text-mgray">| 3 </Text>
                   </Text>
-                  <Text className="text-mgray text-end">Skip</Text>
+                  <Text className="text-mgray text-[15px] absolute pt-10 right-0">
+                    Skip
+                  </Text>
                 </View>
-                <Image
-                  source={item.image}
-                  style={{
-                    width: SIZES.width - 80,
-                    height: 400,
-                  }}
-                  // className="w-[300] h-[284]"
-                  resizeMode="contain"
-                />
-                <View>
-                  <Text className="text-start">{item.title}</Text>
-                  <Text>{item.description}</Text>
+                <View className="flex items-center">
+                  <Image
+                    source={item.image}
+                    style={{
+                      width: SIZES.width - 80,
+                      height: 400,
+                    }}
+                    resizeMode="contain"
+                  />
+                </View>
+                <View className='gap-[10px]'>
+                  <Text className="text-white text-[32px] font-bold ">
+                    {item.title}
+                  </Text>
+                  <Text className="text-mgray text-[15px] font-regular ">
+                    {item.description}
+                  </Text>
                 </View>
               </View>
             );
@@ -73,11 +80,9 @@ export default function App() {
           renderDoneButton={() => {
             return doneButton();
           }}
-          renderPagination={() => {
-            return ;
-          }}
           onDone={() => setSetshowHomePage(true)}
         />
+        <StatusBar style="light" />
       </SafeAreaView>
     );
   }

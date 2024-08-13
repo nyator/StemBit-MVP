@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const onBoarding = () => {
+const TabLayout = () => {
   return (
     <View>
-      <Text>onBoarding</Text>
+      <Text>TabLayout</Text>
     </View>
   )
 }
 
-export default onBoarding
+export default TabLayout

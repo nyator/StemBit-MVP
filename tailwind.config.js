@@ -10,7 +10,7 @@ module.exports = {
       },
       fontFamily: {
         rblack: ["Raleway-Black", "sans-serif"],
-        rbold: ["Raleway-Bold", "sans-serif"],
+        rbold: ["Raleway-Bold"],
         rextrabold: ["Raleway-ExtraBold", "sans-serif"],
         rextralight: ["Raleway-ExtraLight", "sans-serif"],
         rlight: ["Raleway-Light", "sans-serif"],
