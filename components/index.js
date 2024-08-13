@@ -1,7 +1,9 @@
-import skipButton from "./skipButton";
+import nextButton from "./nextButton";
 import doneButton from "./doneButton";
+import skipButton from "./skipButton";
 
 export{
-    skipButton,
+    nextButton,
     doneButton,
+    skipButton,
 }

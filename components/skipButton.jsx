@@ -1,16 +1,14 @@
-import { View, Text, Image } from 'react-native'
-import React from 'react'
-
-import {right} from '../constants/icons'
+import { View, Text } from "react-native";
+import React from "react";
 
 const skipButton = () => {
   return (
-    <View className='bg-primary h-[45px] w-[45px] border-[5px] border-[#058C6A] flex items-center justify-center rounded-full'>
-        <Image 
-        source={right}
-        />
+    <View>
+      <Text className="text-mgray font-rregular text-[15px] absolute pt-10 right-0">
+        Skip
+      </Text>
     </View>
-  )
-}
+  );
+};
 
-export default skipButton
+export default skipButton;

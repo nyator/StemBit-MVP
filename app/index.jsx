@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Text, View, Image, SafeAreaView } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
 
-import { SIZES } from "../constants/theme";
-import { skipButton, doneButton } from "../components";
+import { SIZES,COLORS } from "../constants/theme";
+import { nextButton, skipButton, doneButton } from "../components";
 import { done } from "../constants/icons";
 
 const slides = [
@@ -46,28 +46,28 @@ export default function App() {
             return (
               <View className="px-7">
                 <View className="text-center pt-10 relative">
-                  <Text className="text-white text-[15px] text-center ">
+                  <Text className="text-white font-rregular text-[15px] text-center ">
                     {item.pageNum} <Text className="text-mgray">| 3 </Text>
                   </Text>
-                  <Text className="text-mgray text-[15px] absolute pt-10 right-0">
+                  <Text className="text-mgray font-rregular text-[15px] absolute pt-10 right-0">
                     Skip
                   </Text>
                 </View>
-                <View className="flex items-center">
+                <View className="flex mt-[55px] mb-[27px] items-center">
                   <Image
                     source={item.image}
                     style={{
                       width: SIZES.width - 80,
-                      height: 400,
+                      height: 284,
                     }}
                     resizeMode="contain"
                   />
                 </View>
-                <View className='gap-[10px]'>
-                  <Text className="text-white text-[32px] font-bold ">
+                <View className="gap-[10px]">
+                  <Text className="text-white text-[32px] font-rbold">
                     {item.title}
                   </Text>
-                  <Text className="text-mgray text-[15px] font-regular ">
+                  <Text className="text-mgray text-[15px] w-80 font-rregular ">
                     {item.description}
                   </Text>
                 </View>
@@ -75,13 +75,31 @@ export default function App() {
             );
           }}
           renderNextButton={() => {
-            return skipButton();
+            return nextButton();
           }}
           renderDoneButton={() => {
             return doneButton();
           }}
+          activeDotStyle={{
+            backgroundColor: COLORS.active,
+            width: 50,
+          }}
+          dotStyle={{
+            backgroundColor: COLORS.inactive,
+          }}
+          renderSkipButton={() => {
+            return skipButton();
+          }}
+          // showSkipButton={{
+          //   show: true,
+          //   position: "bottom",
+          // }}
           onDone={() => setSetshowHomePage(true)}
         />
+        <Text className="text-mgray text-[10px] absolute right-[44%] bottom-8">
+          by
+          <Text className="text-primary"> nehtek</Text>
+        </Text>
         <StatusBar style="light" />
       </SafeAreaView>
     );
