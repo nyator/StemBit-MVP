@@ -1,9 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { Text, View, Image, SafeAreaView } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
 
-import { SIZES,COLORS } from "../constants/theme";
+import { SIZES, COLORS } from "../constants/theme";
 import { nextButton, skipButton, doneButton } from "../components";
 import { done } from "../constants/icons";
 
@@ -35,9 +41,9 @@ const slides = [
 ];
 
 export default function App() {
-  const [setshowHomePage, setSetshowHomePage] = useState(false);
+  const [setShowHomePage, setSetShowHomePage] = useState(false);
 
-  if (!setshowHomePage) {
+  if (!setShowHomePage) {
     return (
       <SafeAreaView className="flex justify-start h-full bg-mbg">
         <AppIntroSlider
@@ -45,29 +51,26 @@ export default function App() {
           renderItem={({ item }) => {
             return (
               <View className="px-7">
-                <View className="text-center pt-10 relative">
+                <View className="text-center pt-10">
                   <Text className="text-white font-rregular text-[15px] text-center ">
                     {item.pageNum} <Text className="text-mgray">| 3 </Text>
                   </Text>
-                  <Text className="text-mgray font-rregular text-[15px] absolute pt-10 right-0">
-                    Skip
-                  </Text>
                 </View>
-                <View className="flex mt-[55px] mb-[27px] items-center">
+                <View className="flex mt-[90px] mb-[10px] items-center">
                   <Image
                     source={item.image}
                     style={{
-                      width: SIZES.width - 80,
-                      height: 284,
+                      width: 350,
+                      height: 324,
                     }}
-                    resizeMode="contain"
+                    resizeMode=""
                   />
                 </View>
                 <View className="gap-[10px]">
-                  <Text className="text-white text-[32px] font-rbold">
+                  <Text className="text-white text-[35px] font-rbold">
                     {item.title}
                   </Text>
-                  <Text className="text-mgray text-[15px] w-80 font-rregular ">
+                  <Text className="text-mgray text-[18px] w-80 font-rregular ">
                     {item.description}
                   </Text>
                 </View>
@@ -87,19 +90,17 @@ export default function App() {
           dotStyle={{
             backgroundColor: COLORS.inactive,
           }}
-          renderSkipButton={() => {
-            return skipButton();
+          showSkipButton={{
+            show: true,
           }}
-          // showSkipButton={{
-          //   show: true,
-          //   position: "bottom",
-          // }}
-          onDone={() => setSetshowHomePage(true)}
+          onDone={() => setSetShowHomePage(true)}
         />
-        <Text className="text-mgray text-[10px] absolute right-[44%] bottom-8">
-          by
-          <Text className="text-primary"> nehtek</Text>
-        </Text>
+        <View className='absolute right-[44%] bottom-8 opacity-50'>
+          <Text className="text-mgray text-rblack text-[15px]">
+            by
+            <Text className=" text-primary"> nehtek</Text>
+          </Text>
+        </View>
         <StatusBar style="light" />
       </SafeAreaView>
     );
